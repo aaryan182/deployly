@@ -6,11 +6,22 @@ import { generateId } from "./idGenerator";
 import { getAllFiles } from "./file";
 import { uploadFile } from "./cloudflareUpload";
 import { createClient } from "redis";
-const publisher = createClient();
-publisher.connect();
 
-const subscriber = createClient();
-subscriber.connect();
+const subscriber = createClient({
+  password: process.env.SUBSCRIBER_REDIS_PASSWORD,
+  socket: {
+    host: process.env.SUBSCRIBER_REDIS_HOST,
+    port: process.env.SUBSCRIBER_REDIS_PORT as unknown as number,
+  },
+});
+
+const publisher = createClient({
+  password: process.env.PUBLISHER_REDIS_PASSWORD,
+  socket: {
+    host: process.env.PUBLISHER_REDIS_HOST,
+    port: process.env.PUBLISHER_REDIS_PORT as unknown as number,
+  },
+});
 
 const app = express();
 app.use(cors());
