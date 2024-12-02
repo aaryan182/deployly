@@ -2,6 +2,9 @@
 
 Deployly is a platform similar to Vercel and Netlify that allows users to deploy web applications by uploading a GitHub repository link. It provides deployed links for seamless access to applications. This project aims to simplify the deployment process with modern tools and a developer-friendly interface.
 
+## Architecture
+![image](https://github.com/user-attachments/assets/056b6d82-687c-48a6-aba4-893732b74537)
+
 ## Features
 
 - **Simple Deployment:** Upload a GitHub repository link and receive a deployed URL.
